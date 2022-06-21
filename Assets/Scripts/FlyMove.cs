@@ -30,7 +30,4 @@ public class FlyMove : MonoBehaviour
 
         transform.localPosition = Vector3.Lerp(transform.localPosition, Vector3.zero, Time.deltaTime);
     }
-
-    
-
 }

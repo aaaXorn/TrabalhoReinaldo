@@ -12,9 +12,14 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField]
     private Image img_hp;
 
+    [SerializeField]
+    private GameObject DeathMenu;
+
     private void Start()
     {
         hp = max_hp;
+
+        InvokeRepeating("ScoreTimer", 0.1f, 0.1f);
     }
 
     public void Damage(int dmg)
@@ -22,7 +27,7 @@ public class PlayerHealth : MonoBehaviour
         hp -= dmg;
         if (hp <= 0)
         {
-            print("morreu");
+            DeathMenu.SetActive(true);
 
             hp = 0;
         }
@@ -32,6 +37,14 @@ public class PlayerHealth : MonoBehaviour
 
     private void OnParticleCollision(GameObject other)
     {
-        Damage(5);
+        Damage(10);
+    }
+
+    private void ScoreTimer()
+    {
+        if(hp > 0)
+        {
+            Score.Instance.ChangeScore(1);
+        }
     }
 }

@@ -30,6 +30,8 @@ public class Turret : MonoBehaviour
     private void OnParticleCollision(GameObject other)
     {
         Destroy(gameObject);
+
+        Score.Instance.ChangeScore(20);
     }
 
     private void OnTriggerEnter(Collider other)
