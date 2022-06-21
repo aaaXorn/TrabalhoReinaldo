@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -15,8 +16,12 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField]
     private GameObject DeathMenu;
 
+    private float default_time;
+
     private void Start()
     {
+        default_time = Time.timeScale;
+
         hp = max_hp;
 
         InvokeRepeating("ScoreTimer", 0.1f, 0.1f);
@@ -28,6 +33,7 @@ public class PlayerHealth : MonoBehaviour
         if (hp <= 0)
         {
             DeathMenu.SetActive(true);
+            Time.timeScale = 0f;
 
             hp = 0;
         }
@@ -47,4 +53,20 @@ public class PlayerHealth : MonoBehaviour
             Score.Instance.ChangeScore(1);
         }
     }
+
+    #region menu
+    public void TryAgain()
+    {
+        Time.timeScale = default_time;
+
+        StaticVars.next_scene = "SampleScene";
+
+        SceneManager.LoadScene("ChangeScene");
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
+    }
+    #endregion
 }
