@@ -6,20 +6,30 @@ public class WeaponControl : MonoBehaviour
 {
     public ParticleSystem fireweapon;
     public AudioSource source;
-    // Start is called before the first frame update
-    void Start()
+
+    private bool shoot;
+
+    private void Start()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (shoot)
         {
             fireweapon.Emit(1);
             source.Play();
         }
-       
+    }
+
+    public void ShootInput()
+    {
+        shoot = true;
+    }
+
+    public void ShootRelease()
+    {
+        shoot = false;
     }
 }
