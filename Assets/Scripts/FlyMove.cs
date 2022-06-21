@@ -9,6 +9,9 @@ public class FlyMove : MonoBehaviour
 
     [SerializeField]
     private FixedJoystick moveJoystick;
+
+    [SerializeField]
+    private float spd;
     
     private void Start()
     {
@@ -26,7 +29,7 @@ public class FlyMove : MonoBehaviour
         rotation = new Vector3(-movement.y, movement.x, -movement.x);
         meshship.transform.localRotation = Quaternion.Euler(rotation * 30);
 
-        transform.Translate(movement * Time.deltaTime * 40);
+        transform.Translate(movement * Time.deltaTime * spd);
 
         transform.localPosition = Vector3.Lerp(transform.localPosition, Vector3.zero, Time.deltaTime);
     }

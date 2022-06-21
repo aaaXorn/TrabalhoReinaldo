@@ -656,6 +656,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meshship: {fileID: 1371009653}
   moveJoystick: {fileID: 1712153299}
+  spd: 40
 --- !u!54 &72752678
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -14407,7 +14408,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1173733501}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
   m_Name: 

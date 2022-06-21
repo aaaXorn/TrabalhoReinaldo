@@ -6,6 +6,7 @@ public class DeactivateEnemy : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        other.gameObject.SetActive(false);
+        if(!other.isTrigger)
+            other.gameObject.SetActive(false);
     }
 }

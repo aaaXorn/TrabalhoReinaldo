@@ -43,7 +43,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void OnParticleCollision(GameObject other)
     {
-        Damage(10);
+        Damage(12);
     }
 
     private void ScoreTimer()

@@ -27,7 +27,5 @@ public class EnemySpawner : MonoBehaviour
 
         enemy.SetActive(true);
         enemy.transform.position = transform.position + Offset[pos];
-
-        print("BBB");
     }
 }
